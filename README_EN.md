@@ -4,7 +4,6 @@
 
 <h1>monologue-video</h1>
 
-[![Gallery](https://img.shields.io/badge/Gallery-live%20previews-7A5AF8)](https://jyjyxt.github.io/monologue-video/)
 [![License](https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue)](LICENSE)
 
 **An agent skill for crafting high-quality voiceover-driven videos: word-level voiceover sync · 108 motion recipe cards · a 7-layer anti-slideshow shot system · triple-gate QA**
@@ -26,9 +25,9 @@ camera moves, plain-cut subtitles, and film-grade SFX, all locked to the voice.
 > built Chinese-narration-first (mixed Chinese/English narration is fully
 > supported). Agents read them natively.
 
-🖼️ [**Browse all 108 motion previews in the live Gallery »**](https://jyjyxt.github.io/monologue-video/); the local gallery is `gallery/index.html`.
+🖼️ **Gallery:** Open `gallery/index.html` locally to browse all 108 motion cards; the [upstream live demo](https://vincentwei1021.github.io/video-talkcraft/) is available for reference.
 
-[![monologue-video live gallery screenshot](assets/gallery-en.png)](https://jyjyxt.github.io/monologue-video/)
+![monologue-video gallery screenshot](assets/gallery-en.png)
 
 ## 🆕 What's new
 <!-- Style rule: one sentence per entry, ≤ 350 characters including the pointer link, stating what it is and what behaviour changed; details, parameters and card lists point to references / SKILL.md sections instead of being expanded here. Keep zh and en in sync. Set by PR #12 (2026-09-05); #14/#18 drifted back to long paragraphs, tightened again 2026-09-07. -->
@@ -101,8 +100,7 @@ camera moves, plain-cut subtitles, and film-grade SFX, all locked to the voice.
 - **108 motion recipe cards** — each with intent, parameters, known pitfalls,
   a copy-paste self-contained Remotion tsx source, and a runnable HTML
   preview — browse them all in the
-  [online Gallery](https://jyjyxt.github.io/monologue-video/) or
-  locally with `open gallery/index.html`. Kinetic type, data shots, evidence
+  local `gallery/index.html`. Kinetic type, data shots, evidence
   tours, six motion-carry transitions, a long-take world canvas, host
   compositing, and more.
 - **A 7-layer anti-slideshow system** — one very slow push-in or pull-out camera
@@ -186,7 +184,7 @@ python3 -m unittest discover -s scripts -p 'test_*fish*.py' -v
 | Content | Description |
 | --- | --- |
 | 108 motion recipe cards | Intent, energy, parameters, implementation notes, and known pitfalls — every card ships a self-contained Remotion tsx source (`template/cards/`, copy one file and go) plus a runnable HTML demo |
-| Gallery | [Online](https://jyjyxt.github.io/monologue-video/) or local (`open gallery/index.html`) — browse and autoplay all 108 previews, search by name/keyword |
+| Gallery | Local `open gallery/index.html` — browse and autoplay all 108 previews, search by name/keyword |
 | Motion systems | CameraRig (slow push/pull), yield lifecycle, six transitions, long-take world canvas; parallax and environment layer optional (`template/motion-systems/`) |
 | Components | Plain-cut subtitles, flower-word titles, smash words, highlight sweeps, pencil draw, number rolls, eight video container frames (`template/components/`) |
 | Pipeline scripts | Word-level timestamps (2 ASR backends), face-zone detection, stillness check, SFX presence check, QA frame extraction (`scripts/`) |

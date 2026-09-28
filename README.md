@@ -4,7 +4,6 @@
 
 <h1>monologue-video</h1>
 
-[![Gallery](https://img.shields.io/badge/Gallery-live%20previews-7A5AF8)](https://jyjyxt.github.io/monologue-video/)
 [![License](https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue)](LICENSE)
 
 **口播视频的 agent skill：字级配音同步 · 108 张动效配方卡 · 七层反 PPT 镜头系统 · 三重验收**
@@ -19,9 +18,9 @@
 分镜，然后用 [Remotion](https://www.remotion.dev/) 渲出高质量的解说成片——动态字卡、
 证据截图、运镜、素排字幕、影视级音效，全部锁在人声上。
 
-🖼️ [**在线画廊：108 张动效预览一页全览 »**](https://jyjyxt.github.io/monologue-video/)；本地画廊见 `gallery/index.html`。
+🖼️ **画廊：**本地打开 `gallery/index.html` 浏览 108 张动效卡；[上游在线演示](https://vincentwei1021.github.io/video-talkcraft/)可作参考。
 
-[![monologue-video 在线画廊截图](assets/gallery-zh.png)](https://jyjyxt.github.io/monologue-video/)
+![monologue-video 画廊截图](assets/gallery-zh.png)
 
 ## 统一依赖（runtime/）
 
@@ -94,7 +93,7 @@
   对照 GPU 强制对齐器实测：字级偏差中位 20–40ms、最差 200ms、质检零误报。
   每个动效节拍都锚在确切的字上。
 - **108 张动效配方卡**——每张有意图、参数、已知坑、可直接复制的自包含 Remotion tsx 源码和可跑的 HTML 预览，
-  [在线画廊](https://jyjyxt.github.io/monologue-video/)一页全览
+  本地 `gallery/index.html` 一页全览
   （本地 `open gallery/index.html` 同款）。动态字卡、数据镜头、证据巡游、
   六式运动承接转场、长镜头世界画布、人物合成等。
 - **七层反 PPT 系统**——每场景一条极缓推进 / 拉出的相机曲线 + 让位生命周期 + 六式运动承接转场
@@ -172,7 +171,7 @@ python3 -m unittest discover -s scripts -p 'test_*fish*.py' -v
 | 内容 | 说明 |
 | --- | --- |
 | 108 张动效配方卡 | 意图、能量档、参数、实现要点、已知坑——每张都配自包含 Remotion tsx 源码（`template/cards/`，复制单文件即用）+ 可跑的 HTML demo |
-| 画廊 | [在线版](https://jyjyxt.github.io/monologue-video/)或本地 `open gallery/index.html`——108 个预览一页自动播放，按名称/关键词搜索 |
+| 画廊 | 本地 `open gallery/index.html`——108 个预览一页自动播放，按名称/关键词搜索 |
 | 动效系统 | CameraRig（极缓推拉）、让位生命周期、六式转场、长镜头世界画布；视差 / 环境层可选（`template/motion-systems/`） |
 | 组件 | 素排字幕、花字、砸字、荧光笔、铅笔手绘、数字滚动、视频容器边框八式（`template/components/`） |
 | 管线脚本 | 字级时间戳（双 ASR 后端）、人脸安全区检测、静止检测、音效在场检查、QA 抽帧（`scripts/`） |
