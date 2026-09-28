@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.svg" alt="Cloudownloader 标志" width="150">
+<img src="assets/logo.svg" alt="monologue-video 标志" width="150">
 
 <h1>monologue-video</h1>
 
