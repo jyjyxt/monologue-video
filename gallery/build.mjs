@@ -763,8 +763,8 @@ if (PAGES) {
 
 - Gallery (live previews of all ${N_CARDS} motion cards): ${SITE}
 - GitHub repository: ${GITHUB}
-- README (中文, default): ${GITHUB}/blob/main/README.md
-- README (English): ${GITHUB}/blob/main/README_EN.md
+- README (English, default): ${GITHUB}/blob/main/README.md
+- README (中文): ${GITHUB}/blob/main/README_ZH.md
 - Agent entry point (SKILL.md): ${GITHUB}/blob/main/SKILL.md
 
 ## License
