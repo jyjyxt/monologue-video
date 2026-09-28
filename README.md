@@ -25,9 +25,7 @@ camera moves, plain-cut subtitles, and film-grade SFX, all locked to the voice.
 > built Chinese-narration-first (mixed Chinese/English narration is fully
 > supported). Agents read them natively.
 
-🖼️ **Gallery:** Open `gallery/index.html` locally to browse all 108 motion cards; see the [online showcase](https://cloudownloader.com/video-effects).
-
-![monologue-video gallery screenshot](assets/gallery-en.png)
+🖼️ **Effect showcase:** Browse all 108 motion cards at [cloudownloader.com/video-effects](https://cloudownloader.com/video-effects). This repository holds the skill, recipe sources, Remotion implementations, and source demos used for verification.
 
 ## Shared dependencies (`runtime/`)
 
@@ -107,8 +105,8 @@ Every video project's `remotion/node_modules` and the workbench's `node_modules`
   exact word.
 - **108 motion recipe cards** — each with intent, parameters, known pitfalls,
   a copy-paste self-contained Remotion tsx source, and a runnable HTML
-  preview — browse them all in the
-  local `gallery/index.html`. Kinetic type, data shots, evidence
+  preview — browse them at the
+  [online effect showcase](https://cloudownloader.com/video-effects). Kinetic type, data shots, evidence
   tours, six motion-carry transitions, a long-take world canvas, host
   compositing, and more.
 - **A 7-layer anti-slideshow system** — one very slow push-in or pull-out camera
@@ -192,7 +190,7 @@ python3 -m unittest discover -s scripts -p 'test_*fish*.py' -v
 | Content | Description |
 | --- | --- |
 | 108 motion recipe cards | Intent, energy, parameters, implementation notes, and known pitfalls — every card ships a self-contained Remotion tsx source (`template/cards/`, copy one file and go) plus a runnable HTML demo |
-| Gallery | Local `open gallery/index.html` — browse and autoplay all 108 previews, search by name/keyword |
+| Effect showcase | [cloudownloader.com/video-effects](https://cloudownloader.com/video-effects) hosts the browsable previews and effect pages |
 | Motion systems | CameraRig (slow push/pull), yield lifecycle, six transitions, long-take world canvas; parallax and environment layer optional (`template/motion-systems/`) |
 | Components | Plain-cut subtitles, flower-word titles, smash words, highlight sweeps, pencil draw, number rolls, eight video container frames (`template/components/`) |
 | Pipeline scripts | Word-level timestamps (2 ASR backends), face-zone detection, stillness check, SFX presence check, QA frame extraction (`scripts/`) |
@@ -214,8 +212,7 @@ monologue-video/
 │   ├── broll-sources.md        # Attribution-free stock sources (APIs, license traps)
 │   ├── host-footage.md         # Host footage: input spec, keying, face safety zone
 │   └── demo-spec.md            # Card/demo authoring spec
-├── demos/                      # 108 runnable HTML previews (+ shared lib with embedded SFX)
-├── gallery/                    # One-page local gallery
+├── demos/                      # Source HTML demos for effect verification and website sync
 ├── template/                   # Copy-paste Remotion code
 │   ├── cards/                  # Per-card self-contained tsx sources (the skill's primary reference)
 │   ├── motion-systems/         # Camera / parallax / yield / environment / transitions / long-take

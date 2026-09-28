@@ -199,7 +199,7 @@ SHOTBOOK 每镜写 `- 选卡行：<语义> → <卡>、<语义> → <卡>`（选
 **选卡必读卡经验**：每张选中的卡，把 `references/cards/<slug>.md` 的「已知坑」与「落位自检」**逐条抄进该镜层矩阵的自检列**，
 实现后按条核（例：取景框 / 圈注 / 下划线类卡必核标注是否套住目标；`gooey-morph` 只用于图不用于字且无人物时居中；`chapter-title-card` **每章一套主题色 + 一个与本章内容相关的线稿 motif**，SHOTBOOK 写章节主题行——四张同色同纹样的章节卡是"又来了"不是"翻页"）——
 卡经验不进 SHOTBOOK 就等于没读。
-动效词汇从 **108 张配方卡** 里选，两道过滤都查 `references/taxonomy.md` 的机器生成索引（源头是各卡 frontmatter 的「输入 / 语义 / 素材形态 / 位置 / props」五个字段，`scripts/cards_index.py --write` 生成、`--check` 校验，手改索引无效）：**先按这一镜的输入过滤**（人 / V / 图 / 截图 / 文 / 界 / 场——「输入类型索引」），**再按这句口播的语义过滤**（自我介绍 / 数据 / 对比 / 列举 / 引用 / 号召……26 词封闭词表——「语义索引」，一张卡只列在它专为之而设的语义下）；索引里带 ◦ 的卡**没有可换内容的 prop**（只暴露资源 / 皮肤类，或什么都不暴露），改文案 / 数据要动 tsx（各卡复用指引的 props 行写了改哪里）。◉◎ 两批新卡（29 张）md 开头另有「输入类型」表 + 「常用场景」四条。然后 `references/taxonomy.md` 分类索引 → `references/cards/<slug>.md` 参数与坑 → `template/cards/<slug>.tsx` **自包含 Remotion 源码（实现以它为准，复制进工程改 CONFIG 即用）**；`demos/<slug>/index.html` 是同画面的 HTML 预览（`open gallery/index.html` 一屏浏览、demo 滚入即自动播放；带★实战卡的生产母本另在 template/motion-systems|components）。
+动效词汇从 **108 张配方卡** 里选，两道过滤都查 `references/taxonomy.md` 的机器生成索引（源头是各卡 frontmatter 的「输入 / 语义 / 素材形态 / 位置 / props」五个字段，`scripts/cards_index.py --write` 生成、`--check` 校验，手改索引无效）：**先按这一镜的输入过滤**（人 / V / 图 / 截图 / 文 / 界 / 场——「输入类型索引」），**再按这句口播的语义过滤**（自我介绍 / 数据 / 对比 / 列举 / 引用 / 号召……26 词封闭词表——「语义索引」，一张卡只列在它专为之而设的语义下）；索引里带 ◦ 的卡**没有可换内容的 prop**（只暴露资源 / 皮肤类，或什么都不暴露），改文案 / 数据要动 tsx（各卡复用指引的 props 行写了改哪里）。◉◎ 两批新卡（29 张）md 开头另有「输入类型」表 + 「常用场景」四条。然后 `references/taxonomy.md` 分类索引 → `references/cards/<slug>.md` 参数与坑 → `template/cards/<slug>.tsx` **自包含 Remotion 源码（实现以它为准，复制进工程改 CONFIG 即用）**；`demos/<slug>/index.html` 是同画面的 HTML 验证源码，公开预览在 [cloudownloader.com/video-effects](https://cloudownloader.com/video-effects)；带★实战卡的生产母本另在 template/motion-systems|components。
 **保真铁律**：每张用到的卡在工程里必须真实存在 `src/cards/<slug>.tsx`
 （自 template 复制改 CONFIG）——只读 md 就凭卡名手写"神似"简化版是最大翻车源
 （回弹/拍击/密度全丢、取景框括号方向画反、名片变色块），机器闸用 `scripts/card_lint.py`
@@ -474,7 +474,7 @@ sleep 4 && curl -s http://localhost:5199 | grep -q '动效工作台' && echo "�
 | 转场（六式代码）/ 长镜头 | `template/motion-systems/transitions.tsx` / `longtake.tsx`（cinematography.md §3、§3.5） |
 | 纯文字镜配线稿示意图（G5：词汇 · 语义图形词典 · 节拍纪律 · 落位自检）| `references/schematic.md` → `template/motion-systems/schematic.tsx` + `icons.ts`（`scripts/fetch_icons.py` 抓 Iconify lucide） |
 | 视频容器边框八式（单视频镜不裸贴、不装假播放器；任何卡的视频区可包） | `template/components/theme-frame.tsx`（规则与选式：design-language §1.3） |
-| 选动效/查参数和坑 | `references/taxonomy.md`（两道生成索引：输入类型 / 语义）→ `references/cards/` → `template/cards/`（tsx 源码）+ `demos/`/`gallery/`（预览） |
+| 选动效/查参数和坑 | `references/taxonomy.md`（两道生成索引：输入类型 / 语义）→ `references/cards/` → `template/cards/`（tsx 源码）+ `demos/`（本地验证）；公开预览在 [动效展示页](https://cloudownloader.com/video-effects) |
 | 口播稿逐句语义标注（②-1）· 选卡候选表 · 卡索引生成 | `references/semantic-annotation.md` · `scripts/semantic_annotate.py` · `scripts/card_match.py` · `scripts/cards_index.py` |
 | 找素材 · 配图采集 · 网页拍摄素材采集（全页 2× 长图 + DOM 坐标 JSON） | `references/broll-sources.md` |
 | 开工体检（③ 素材期 `--media-only` / ④→⑤ 闸全量：人物素材帧率·重复帧·时长·比例 + SHOTBOOK 素材对账·未完成清单） | `scripts/preflight.py` |

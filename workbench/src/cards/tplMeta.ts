@@ -1,4 +1,4 @@
-// 由 gallery/index.html 内嵌 CARDS 数据生成：卡 id → 中文名/分类（与画廊一致）
+// 卡 id → 中文名/分类，与 references/cards/ 配方卡元数据一致。
 export const TPL_META: Record<string, { name: string; category: string }> = {
   "focus-dim-spotlight": { name: "聚焦压暗切换", category: "强调标注" },
   "hand-drawn-ellipse": { name: "手绘圈重点", category: "强调标注" },

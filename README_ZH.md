@@ -18,9 +18,7 @@
 分镜，然后用 [Remotion](https://www.remotion.dev/) 渲出高质量的解说成片——动态字卡、
 证据截图、运镜、素排字幕、影视级音效，全部锁在人声上。
 
-🖼️ **画廊：**本地打开 `gallery/index.html` 浏览 108 张动效卡；[在线展示](https://cloudownloader.com/video-effects)。
-
-![monologue-video 画廊截图](assets/gallery-zh.png)
+🖼️ **动效展示：**到 [cloudownloader.com/video-effects](https://cloudownloader.com/video-effects) 浏览 108 张动效卡。本仓库保留 skill、配方源文件、Remotion 实现和用于验证的 demo 源码。
 
 ## 统一依赖（runtime/）
 
@@ -93,8 +91,7 @@
   对照 GPU 强制对齐器实测：字级偏差中位 20–40ms、最差 200ms、质检零误报。
   每个动效节拍都锚在确切的字上。
 - **108 张动效配方卡**——每张有意图、参数、已知坑、可直接复制的自包含 Remotion tsx 源码和可跑的 HTML 预览，
-  本地 `gallery/index.html` 一页全览
-  （本地 `open gallery/index.html` 同款）。动态字卡、数据镜头、证据巡游、
+  到[在线动效展示](https://cloudownloader.com/video-effects)浏览。动态字卡、数据镜头、证据巡游、
   六式运动承接转场、长镜头世界画布、人物合成等。
 - **七层反 PPT 系统**——每场景一条极缓推进 / 拉出的相机曲线 + 让位生命周期 + 六式运动承接转场
   （2026-09-04 起做减法：不再要求主体 idle 与环境呼吸）。
@@ -171,7 +168,7 @@ python3 -m unittest discover -s scripts -p 'test_*fish*.py' -v
 | 内容 | 说明 |
 | --- | --- |
 | 108 张动效配方卡 | 意图、能量档、参数、实现要点、已知坑——每张都配自包含 Remotion tsx 源码（`template/cards/`，复制单文件即用）+ 可跑的 HTML demo |
-| 画廊 | 本地 `open gallery/index.html`——108 个预览一页自动播放，按名称/关键词搜索 |
+| 动效展示 | [cloudownloader.com/video-effects](https://cloudownloader.com/video-effects) 提供可浏览的预览与详情页 |
 | 动效系统 | CameraRig（极缓推拉）、让位生命周期、六式转场、长镜头世界画布；视差 / 环境层可选（`template/motion-systems/`） |
 | 组件 | 素排字幕、花字、砸字、荧光笔、铅笔手绘、数字滚动、视频容器边框八式（`template/components/`） |
 | 管线脚本 | 字级时间戳（双 ASR 后端）、人脸安全区检测、静止检测、音效在场检查、QA 抽帧（`scripts/`） |
@@ -193,8 +190,7 @@ monologue-video/
 │   ├── broll-sources.md        # 免署名素材源（API、授权坑）
 │   ├── host-footage.md         # 人物素材：输入规格、抠像、人脸安全区
 │   └── demo-spec.md            # 卡片/demo 编写规范
-├── demos/                      # 108 个可跑的 HTML 预览（共享库内嵌音效）
-├── gallery/                    # 单页本地画廊
+├── demos/                      # 用于动效验证和网站同步的 HTML demo 源码
 ├── template/                   # 即取即用的 Remotion 代码
 │   ├── cards/                  # 108 卡逐卡自包含 tsx 源码（skill 首选引用）
 │   ├── motion-systems/         # 相机/视差/让位/环境/转场/长镜头系统
