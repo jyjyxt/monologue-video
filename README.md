@@ -18,7 +18,7 @@
 分镜，然后用 [Remotion](https://www.remotion.dev/) 渲出高质量的解说成片——动态字卡、
 证据截图、运镜、素排字幕、影视级音效，全部锁在人声上。
 
-🖼️ **画廊：**本地打开 `gallery/index.html` 浏览 108 张动效卡；[上游在线演示](https://vincentwei1021.github.io/video-talkcraft/)可作参考。
+🖼️ **画廊：**本地打开 `gallery/index.html` 浏览 108 张动效卡；[在线展示](https://cloudownloader.com/video-effects)。
 
 ![monologue-video 画廊截图](assets/gallery-zh.png)
 

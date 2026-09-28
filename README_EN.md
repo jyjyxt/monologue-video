@@ -25,7 +25,7 @@ camera moves, plain-cut subtitles, and film-grade SFX, all locked to the voice.
 > built Chinese-narration-first (mixed Chinese/English narration is fully
 > supported). Agents read them natively.
 
-🖼️ **Gallery:** Open `gallery/index.html` locally to browse all 108 motion cards; the [upstream live demo](https://vincentwei1021.github.io/video-talkcraft/) is available for reference.
+🖼️ **Gallery:** Open `gallery/index.html` locally to browse all 108 motion cards; see the [online showcase](https://cloudownloader.com/video-effects).
 
 ![monologue-video gallery screenshot](assets/gallery-en.png)
 
