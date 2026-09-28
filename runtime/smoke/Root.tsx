@@ -11,7 +11,7 @@ const Smoke: React.FC = () => {
   void animate;
   return (
     <AbsoluteFill style={{background: '#111', color: '#fff', fontFamily: 'sans-serif', fontSize: 40, alignItems: 'center', justifyContent: 'center'}}>
-      talkcraft runtime smoke · frame {f} · ease {eased.toFixed(2)}
+      monologue-video runtime smoke · frame {f} · ease {eased.toFixed(2)}
     </AbsoluteFill>
   );
 };

@@ -1,4 +1,4 @@
-# TalkCraft Workbench · 动效工作台
+# Monologue Video Workbench · 动效工作台
 
 剪映式的动效编辑工作台：多轨时间线 + 素材库 + schema 属性面板。108 张动效卡与口播成片的每个单元（镜头/字幕句/音效/转场/环境）都能拆成独立 clip 编排，文字内容、颜色、字号、位置逐项可调。
 
@@ -39,13 +39,13 @@ skill 在 ⑤-1 合成骨架搭完就把工程接进来、开着工作台（SKIL
   再合上工程根 `pipeline.json` 里 `manual` 一节（`--pass` / `--issue` / `--stage`，盘上推不出的才手写）。文件变化经 Vite 的 chokidar + 4s 兜底轮询，只在状态变了才推（`/api/pipeline/events`）。
 - **配音块按工程实际文件解析**（public/ 根的 narration.wav / full.wav / voice.*），旧存档里写死 full.wav 的配音块同步时自动换到实际文件；工程里没有这类文件时 `workbench_contract_lint.py` 报 FAIL。
 - **拆解导入可增量同步**：拆解单元 id 稳定（`kb-shot-s03`、`kb-sfx-12`…），再点一次变成「⟳ 同步拆解」——起点 / 时长跟新，你改过的文案 / 颜色 / 图层保留，你删掉的单元不复活（工程记着上次拆解的 id）。已知限制：分割过的拆解片段同步后左半会被重置成整段，分割请在同步之后做。
-- **切换工程**：只有来源路径相同的存档会增量同步；另一支视频或没有 `kbProjectRoot` 标记的旧存档会重新拆解当前工程，并读取它自己的 overrides。旧版本的未标记存档保留在原 localStorage key `talkcraft-workbench-project-v1`，不会猜测来源后自动写回。
+- **切换工程**：只有来源路径相同的存档会增量同步；另一支视频或没有 `kbProjectRoot` 标记的旧存档会重新拆解当前工程，并读取它自己的 overrides。未标记存档保留在 localStorage key `monologue-video-workbench-project-v1`，不会猜测来源后自动写回。
 - **参数写盘**：保存失败会提示并自动重试，写入按顺序执行。请求带当前工程标记，切换了工程的 dev server 会拒绝旧标签页写入，并提示刷新。
 - 看板只看不驱动：没有"点按钮触发某一步"的接口，skill 是主控。设计、取舍与 L2（配音预剪波形视图 + 双向编辑契约）见 [docs/live-pipeline.md](docs/live-pipeline.md)。
 
 ## 接入口播成片工程（可选）
 
-口播拆解、逐镜编辑、成片素材依赖一个外部 Remotion 工程（video-talkcraft skill 的产物），通过符号链接接入（机器本地路径，不进库）：
+口播拆解、逐镜编辑、成片素材依赖一个外部 Remotion 工程（monologue-video skill 的产物），通过符号链接接入（机器本地路径，不进库）：
 
 ```bash
 cd workbench

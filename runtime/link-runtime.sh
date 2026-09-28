@@ -40,12 +40,12 @@ if (missing.length) {
   console.error(`[runtime] 接入失败，原依赖与 package.json 未改动。先在 runtime 安装这些包并更新 lock：${missing.join(", ")}`);
   process.exit(1);
 }
-pkg.talkcraftRuntime = rt;
+pkg.monologueVideoRuntime = rt;
 const modules = path.join(rem, "node_modules");
 const suffix = randomUUID();
-const stagedLink = path.join(rem, `.talkcraft-link-${suffix}`);
-const stagedPkg = path.join(rem, `.talkcraft-package-${suffix}`);
-const backup = path.join(rem, `.talkcraft-deps-${suffix}`);
+const stagedLink = path.join(rem, `.monologue-video-link-${suffix}`);
+const stagedPkg = path.join(rem, `.monologue-video-package-${suffix}`);
+const backup = path.join(rem, `.monologue-video-deps-${suffix}`);
 let moved = false, linked = false;
 try {
   fs.writeFileSync(stagedPkg, JSON.stringify(pkg, null, 2) + "\n");

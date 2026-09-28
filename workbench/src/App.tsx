@@ -236,7 +236,7 @@ export const App: React.FC = () => {
   return (
     <div className="app">
       <header className="topbar">
-        <span className="logo">TalkCraft <b>Workbench</b></span>
+        <span className="logo">Monologue Video <b>Workbench</b></span>
         <input
           className="project-name"
           value={project.name}

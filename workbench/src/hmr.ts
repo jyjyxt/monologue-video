@@ -11,8 +11,8 @@
  *  latest 槽，由单例连接 / 订阅在触发时取最新的那份。Remotion CLI（webpack）渲染只执行一次，单例即普通对象。 */
 type Bag = Record<string, unknown>;
 const bag = (): Bag => {
-  const g = globalThis as typeof globalThis & { __talkcraftWb?: Bag };
-  return (g.__talkcraftWb ??= {});
+  const g = globalThis as typeof globalThis & { __monologueVideoWb?: Bag };
+  return (g.__monologueVideoWb ??= {});
 };
 
 /** 按 key 复用：首次执行创建，之后的模块重执行拿到同一个对象 */

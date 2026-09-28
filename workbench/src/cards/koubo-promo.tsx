@@ -60,7 +60,7 @@ const MainVideo: React.FC = () => {
   );
 };
 
-// koubo-promo · 口播成片 TalkcraftPromo —— 1920×1080 成片按 0.5 缩放适配 960×540 画布。
+// koubo-promo · 口播成片 MonologueVideoPromo —— 1920×1080 成片按 0.5 缩放适配 960×540 画布。
 // 布局是硬编码 1080p 像素、useVideoConfig 只取 fps(=30)，缩放包裹即可。
 const SCALE = 960 / 1920;
 
@@ -82,7 +82,7 @@ const KouboPromo: React.FC = () => (
 
 export const kouboPromoCard: CardDef = {
   id: "koubo-promo",
-  name: "口播成片 · TalkcraftPromo",
+  name: "口播成片 · MonologueVideoPromo",
   category: "成片",
   hidden: KB_LINKED && !KB_PROMO, // promo 形态专属：接入其它形态工程时不列出
   durationInFrames: Math.ceil(184.8 * 30), // 与其 Root.tsx 的 TOTAL_FRAMES 同式

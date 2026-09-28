@@ -1,4 +1,4 @@
-# TalkCraft Workbench 使用指南
+# Monologue Video Workbench 使用指南
 
 剪映式的动效编辑工作台：**多轨时间线 + 素材库 + schema 属性面板 + 实时预览 + Remotion 导出**。
 skill 渲出成片后，用它做人工微调——挪一个镜头、改一句文案、换一个音效、拉长一段停留，
@@ -68,7 +68,7 @@ npm run dev          # http://localhost:5199
 ![动效库 · 折叠](docs/img/03-library-cards.png)
 ![动效库 · 展开一类](docs/img/03b-library-cards-open.png)
 
-108 张动效配方卡按[在线画廊](https://vincentwei1021.github.io/video-talkcraft/)的 7 个分类折叠：
+108 张动效配方卡按[在线画廊](https://jyjyxt.github.io/monologue-video/)的 7 个分类折叠：
 强调标注 / 人物互动 / 数据信息图 / 素材呈现 / 运镜 / 转场结构 / 字幕花字（另有「工作台」自有卡）。
 每张卡显示时长，「· 可调参」表示它有属性面板可调的参数——现在 108 张全部可调。
 缩略图是画廊的预览视频，没有预览视频的卡用 Player 实时循环。

@@ -26,7 +26,7 @@ const parseSteps = (s: string) =>
   });
 
 const HostCardGlassBoard: React.FC<Props> = ({
-  tag = "TALKCRAFT · 第 12 期",
+  tag = "MONOLOGUE VIDEO · 第 12 期",
   title = "口播工作流",
   en = "SCRIPT → VOICE → RENDER",
   steps = DEFAULT_STEPS,
@@ -45,7 +45,7 @@ export const card: CardDef = {
   accent: "#8ab4ff",
   component: HostCardGlassBoard as React.ComponentType<Record<string, unknown>>,
   schema: [
-    { type: "text", key: "tag", label: "板头期数小字", default: "TALKCRAFT · 第 12 期" },
+    { type: "text", key: "tag", label: "板头期数小字", default: "MONOLOGUE VIDEO · 第 12 期" },
     { type: "text", key: "title", label: "大标题（逐字解糊）", default: "口播工作流" },
     { type: "text", key: "en", label: "英文字距行", default: "SCRIPT → VOICE → RENDER" },
     { type: "textarea", key: "steps", label: "道具步骤（每行「图标|标签|副标」，2~4 步）", default: DEFAULT_STEPS },

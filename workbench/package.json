@@ -1,5 +1,5 @@
 {
-  "name": "talkcraft-workbench",
+  "name": "monologue-video-workbench",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -32,5 +32,5 @@
     "typescript": "5.9.3",
     "vite": "6.4.3"
   },
-  "talkcraftRuntime": "../runtime"
+  "monologueVideoRuntime": "../runtime"
 }

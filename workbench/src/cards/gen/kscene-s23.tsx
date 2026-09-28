@@ -77,7 +77,7 @@ interface Props {
 
 const KSceneS23: React.FC<Props> = ({
   act1Label = "OPEN SOURCE",
-  act1Line1 = "video-talkcraft",
+  act1Line1 = "monologue-video",
   act1Line2 = "78 张动效卡",
   act1Sub = "全部开源 · 每张都有可播 demo",
   act1TitleSize = 82,
@@ -167,7 +167,7 @@ export const card: CardDef = {
   component: KSceneS23 as React.ComponentType<Record<string, unknown>>,
   schema: [
     { type: "text", key: "act1Label", label: "段1 · 眉头小字", default: "OPEN SOURCE" },
-    { type: "text", key: "act1Line1", label: "段1 · 标题上行", default: "video-talkcraft" },
+    { type: "text", key: "act1Line1", label: "段1 · 标题上行", default: "monologue-video" },
     { type: "text", key: "act1Line2", label: "段1 · 标题下行（强调色）", default: "78 张动效卡" },
     { type: "text", key: "act1Sub", label: "段1 · 副题", default: "全部开源 · 每张都有可播 demo" },
     { type: "slider", key: "act1TitleSize", label: "段1 · 标题字号", default: 82, min: 48, max: 120, step: 1, unit: "px" },

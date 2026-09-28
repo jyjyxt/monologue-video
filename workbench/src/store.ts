@@ -9,7 +9,7 @@ import { singleton } from "./hmr";
 export { projectDuration } from "./types";
 
 // 未标记来源的旧存档保留在原 key，不猜测它属于当前哪支视频。
-const STORAGE_KEY = `talkcraft-workbench-project-v1${KB_PROJECT_ROOT ? `:${encodeURIComponent(KB_PROJECT_ROOT)}` : ""}`;
+const STORAGE_KEY = `monologue-video-workbench-project-v1${KB_PROJECT_ROOT ? `:${encodeURIComponent(KB_PROJECT_ROOT)}` : ""}`;
 
 const loadInitial = (): ProjectData => {
   try {

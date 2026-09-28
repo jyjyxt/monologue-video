@@ -12,7 +12,7 @@ const shotIds = ['s01', 's02', 's03', 's04', 's05'];
 // Exercise the real CLI. Invalid input needs no Remotion installation; valid
 // selection uses lightweight renderer/ffprobe doubles, not a browser or video.
 function project(t, {renderer = false, cached = []} = {}) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'talkcraft-selection-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'monologue-video-selection-'));
   t.after(() => fs.rmSync(root, {recursive: true, force: true}));
   const write = (file, text) => {
     const dest = path.join(root, file);
@@ -26,7 +26,7 @@ function project(t, {renderer = false, cached = []} = {}) {
   const traceFile = path.join(root, 'trace.jsonl');
   if (renderer) {
     const trace = `const fs = require('node:fs');
-      const trace = (event) => fs.appendFileSync(process.env.TALKCRAFT_TEST_TRACE, JSON.stringify(event) + '\\n');`;
+      const trace = (event) => fs.appendFileSync(process.env.MONOLOGUE_VIDEO_TEST_TRACE, JSON.stringify(event) + '\\n');`;
     write('node_modules/@remotion/bundler/index.js', `${trace}
       trace({event: 'load-bundler'});
       exports.bundle = async () => {trace({event: 'bundle'}); return 'test-bundle';};`);
@@ -54,7 +54,7 @@ function project(t, {renderer = false, cached = []} = {}) {
         cwd: root,
         encoding: 'utf8',
         timeout: 10000,
-        env: {...process.env, TALKCRAFT_TEST_TRACE: traceFile,
+        env: {...process.env, MONOLOGUE_VIDEO_TEST_TRACE: traceFile,
           PATH: [path.join(root, 'bin'), path.dirname(process.execPath), process.env.PATH].join(path.delimiter)},
       });
     },

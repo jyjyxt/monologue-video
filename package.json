@@ -1,4 +1,6 @@
 {
+  "name": "monologue-video",
+  "private": true,
   "dependencies": {
     "playwright": "^1.62.1"
   }

@@ -51,8 +51,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p site/media
+          if gh release view gallery-media --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            MEDIA_REPOSITORY="$GITHUB_REPOSITORY"
+          else
+            MEDIA_REPOSITORY="Vincentwei1021/video-talkcraft"
+          fi
           gh release download gallery-media \
-            --repo "$GITHUB_REPOSITORY" \
+            --repo "$MEDIA_REPOSITORY" \
             --dir site/media \
             --pattern '*.mp4' \
             --clobber

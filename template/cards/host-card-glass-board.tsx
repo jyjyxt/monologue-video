@@ -126,7 +126,7 @@ const DEFAULT_STEPS: Step[] = [
   { icon: "▶", label: "成片", sub: "RENDER · 1080p" },
 ];
 
-export default function HostCardGlassBoard({ hostSrc, tag = "TALKCRAFT · 第 12 期", title = "口播工作流", en = "SCRIPT → VOICE → RENDER", steps = DEFAULT_STEPS, result = "一遍过 · 3 分 20 秒" }: Props) {
+export default function HostCardGlassBoard({ hostSrc, tag = "MONOLOGUE VIDEO · 第 12 期", title = "口播工作流", en = "SCRIPT → VOICE → RENDER", steps = DEFAULT_STEPS, result = "一遍过 · 3 分 20 秒" }: Props) {
   const t = useCurrentFrame() / FPS;
   const n = Math.max(2, Math.min(steps.length, 4));
   const shown = steps.slice(0, n);

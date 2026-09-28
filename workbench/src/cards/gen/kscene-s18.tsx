@@ -77,10 +77,10 @@ interface Props {
 
 const KsceneS18: React.FC<Props> = ({
   title = "代码工具，让界面自己演戏",
-  cmd = "talkcraft render --shotbook",
+  cmd = "monologue-video render --shotbook",
   promptUser = "agent",
   promptPath = "~/video",
-  termTitle = "agent@talkcraft",
+  termTitle = "agent@monologue-video",
   logLines = "#8cc7ff|✓ composition ready\n#63dca5|+ motion cards\n#ff8b8b|- static frame\n#63dca5|+ Camera · SFX · QA",
   titleColor = "#f5f5f7",
   accentColor = "#0066cc",
@@ -158,10 +158,10 @@ export const card: CardDef = {
   component: KsceneS18 as React.ComponentType<Record<string, unknown>>,
   schema: [
     { type: "text", key: "title", label: "镜头标题", default: "代码工具，让界面自己演戏" },
-    { type: "text", key: "cmd", label: "终端命令（逐字敲出）", default: "talkcraft render --shotbook" },
+    { type: "text", key: "cmd", label: "终端命令（逐字敲出）", default: "monologue-video render --shotbook" },
     { type: "text", key: "promptUser", label: "提示符用户名", default: "agent" },
     { type: "text", key: "promptPath", label: "提示符路径", default: "~/video" },
-    { type: "text", key: "termTitle", label: "终端标题栏", default: "agent@talkcraft" },
+    { type: "text", key: "termTitle", label: "终端标题栏", default: "agent@monologue-video" },
     { type: "textarea", key: "logLines", label: "日志行（每行：#颜色|文本；错峰延迟固定）", default: "#8cc7ff|✓ composition ready\n#63dca5|+ motion cards\n#ff8b8b|- static frame\n#63dca5|+ Camera · SFX · QA" },
     { type: "color", key: "titleColor", label: "标题文字色", default: "#f5f5f7" },
     { type: "color", key: "accentColor", label: "强调色（光标）", default: "#0066cc" },

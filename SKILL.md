@@ -1,9 +1,9 @@
 ---
-name: video-talkcraft
+name: monologue-video
 description: 终极口播视频 skill：中文口播稿 + 成品配音 → CPU 字级时间戳 → SHOTBOOK 层矩阵分镜 → Remotion 电影感成片（横屏默认/竖屏）。当用户要"做口播视频"、"解说/科普视频"、"把文案变成视频"、"给配音配画面动效"时使用。默认使用成品配音，可选 Fish Audio 从稿子合成配音与时间戳；数字人生成技术不在本 skill 内（人物素材是输入）。含统一视觉语言（Apple 范式）、108 张动效配方卡、镜头三面分层工作单、七层镜头反PPT系统（极缓推拉相机/让位，运动做减法）、六式运动承接转场（每式一卡）、长镜头世界画布、anime.js+three.js 桥、自动静止检测 + 独立 subagent 评估循环。
 ---
 
-# video-talkcraft — 口播视频 skill
+# monologue-video — 口播视频 skill
 
 三大来源合体：**管线**（配音→字级时间戳→Remotion）+ **词汇**（108 张动效配方卡，全配可播 demo + 自包含 tsx）+ **镜头**（七层模型反 PPT 系统）+ **视觉语言**（Apple 范式默认版）。
 
@@ -450,7 +450,7 @@ mkdir -p public && for f in <本片工程>/remotion/public/*; do ln -sfn "$f" "p
 npm run dev &                                     # 浏览器打开 http://localhost:5199/?tracks 并告知用户（多轨面；?live 同义）
 sleep 4 && curl -s http://localhost:5199 | grep -q '动效工作台' && echo "工作台 OK" || echo "FAIL: 工作台未起——禁止用 remotion studio 代替"
 ```
-**防误操作**：交付给用户的界面**只能是这个工作台**（页面标题「TalkCraft Workbench · 动效工作台」，上面那行断言就是核验）。
+**防误操作**：交付给用户的界面**只能是这个工作台**（页面标题「Monologue Video Workbench · 动效工作台」，上面那行断言就是核验）。
 `npx remotion studio`（工程内）或工作台的 `npm run studio` 是开发者调参入口，**不是**交付面，不得用它代替工作台；
 `npm run dev` 必须从 `<skill根>/workbench` 执行（别在本片工程目录里起）。
 
@@ -460,11 +460,7 @@ sleep 4 && curl -s http://localhost:5199 | grep -q '动效工作台' && echo "�
 改动写回本片 `remotion/overrides.json`，渲染读同一份；改完点「导出成片」（内置 Remotion 渲染，遵守单并发纪律）。详见 `workbench/README.md` / `GUIDE.md` ⑥。
 接入按真实路径解析、契约模块缺哪个只降级哪个（`workbench/kbsrc.map.mjs`）；本 skill 产出的工程按 ⑤「拆解契约」六个文件写就能拆——
 拆解按钮灰着，先看 `npm run gen` 末行报的是缺哪个契约文件，别去补造 promo 形态的 PromoScenes / Host。
-发布时**推荐（非强制）**在简介 @ 一下本 skill 作者——对作者是最好的支持：
-X [`@VincentWei93`](https://x.com/VincentWei93) ·
-抖音 [@Vincent](https://www.douyin.com/user/MS4wLjABAAAAK1pkjBxilk2Oi_9h_vFyD-lTAu9CTlvhmOtkosDvvxg) ·
-小红书 [@Vincent](https://xhslink.cn/m/At9iP2d5C1V)。
-有建议、反馈欢迎扫 README「微信讨论群」小节的二维码进交流群。
+本分支由 [broli · @0xbroli](https://x.com/0xbroli) 维护；原项目作者与许可说明见 README 和 LICENSE。
 
 ## 目录路由
 

@@ -11,7 +11,7 @@ import unittest
 
 class RuntimeMigrationTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(prefix='talkcraft-runtime-test-')
+        self.temp = tempfile.TemporaryDirectory(prefix='monologue-video-runtime-test-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.rt = self.root / 'runtime'
@@ -43,7 +43,7 @@ class RuntimeMigrationTests(unittest.TestCase):
         self.assertFalse((self.proj / 'node_modules').is_symlink())
         self.assertEqual((self.proj / 'node_modules' / 'keep').read_text(), 'old dependency')
         self.assertEqual((self.proj / 'package.json').read_text(), original or self.original)
-        self.assertEqual(list(self.proj.glob('.talkcraft-*')), [])
+        self.assertEqual(list(self.proj.glob('.monologue-video-*')), [])
 
     def test_missing_dependency_preserves_existing_install_and_manifest(self):
         data = json.loads(self.original)
@@ -75,7 +75,7 @@ class RuntimeMigrationTests(unittest.TestCase):
             pkg = json.loads((self.proj / 'package.json').read_text())
             self.assertEqual(pkg['dependencies']['remotion'], '4.0.519')
             self.assertEqual(pkg['scripts']['render'], 'kept')
-            self.assertEqual(list(self.proj.glob('.talkcraft-*')), [])
+            self.assertEqual(list(self.proj.glob('.monologue-video-*')), [])
             self.assertTrue((self.rt / 'node_modules' / 'remotion' / 'package.json').exists())
 
     def test_project_dangling_symlink_can_be_replaced(self):
@@ -90,7 +90,7 @@ class RuntimeMigrationTests(unittest.TestCase):
         preload.write_text("""const fs = require('node:fs');
 const rename = fs.renameSync;
 fs.renameSync = (from, to) => {
-  if (String(from).includes('.talkcraft-package-')) throw new Error('simulated publish failure');
+  if (String(from).includes('.monologue-video-package-')) throw new Error('simulated publish failure');
   return rename(from, to);
 };
 """)
@@ -109,7 +109,7 @@ fs.renameSync = (from, to) => {
         npm = binary / 'npm'
         npm.write_text('#!/bin/sh\n[ "$1" = view ] || exit 90\necho 4.0.519\n')
         npm.chmod(0o755)
-        env = dict(os.environ, PATH=f'{binary}{os.pathsep}{os.environ["PATH"]}', TALKCRAFT_SMOKE='0')
+        env = dict(os.environ, PATH=f'{binary}{os.pathsep}{os.environ["PATH"]}', MONOLOGUE_VIDEO_SMOKE='0')
         result = subprocess.run(['bash', str(self.rt / 'check-runtime.sh')], capture_output=True, text=True, env=env, timeout=15)
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual((self.wb / 'node_modules').resolve(), (self.rt / 'node_modules').resolve())

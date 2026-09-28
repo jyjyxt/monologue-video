@@ -24,8 +24,12 @@ const outPath = outIdx >= 0 && argvv[outIdx + 1]
   : resolve(root, "gallery", "index.html");
 const DEMO_BASE = PAGES ? "demos/" : "../demos/";
 
-const SITE = "https://vincentwei1021.github.io/video-talkcraft/";
-const GITHUB = "https://github.com/Vincentwei1021/video-talkcraft";
+// GitHub Actions supplies the destination repository; local builds use this fork.
+const REPOSITORY = process.env.GITHUB_REPOSITORY || "jyjyxt/monologue-video";
+const [REPO_OWNER, REPO_NAME] = REPOSITORY.split("/");
+const SITE = `https://${REPO_OWNER.toLowerCase()}.github.io/${REPO_NAME}/`;
+const GITHUB = `https://github.com/${REPOSITORY}`;
+const GITHUB_API = `https://api.github.com/repos/${REPOSITORY}`;
 
 function parseCard(file) {
   const raw = readFileSync(resolve(cardsDir, file), "utf8").replace(/\r\n?/g, "\n");   // CRLF 检出（Windows autocrlf）时 `(.*)$` 吃不到 \r → 整份 frontmatter 解析为空、79 张卡中文标题全丢（PR #6 入库的 index.html 即此状态）
@@ -149,14 +153,14 @@ const categories = [...new Set(cards.map((c) => c.category))];
 // meta 层是搜索引擎与 AI 爬虫的主要抓取面）
 // 卡数一律取 cards.length（曾在 78→79 时文案漏改，搜索/AI 抓取面继续显示旧数）
 const N_CARDS = cards.length;
-const DESC = `video-talkcraft 口播视频动效库：${N_CARDS} 张动效配方卡在线预览——动态字卡、数据镜头、证据巡游、运动承接转场。` +
+const DESC = `monologue-video 口播视频动效库：${N_CARDS} 张动效配方卡在线预览——动态字卡、数据镜头、证据巡游、运动承接转场。` +
   `${N_CARDS} motion recipe cards for voiceover-driven explainer videos — an agent skill for Claude Code / Codex, rendered with Remotion.`;
-const SEO_TITLE = `video-talkcraft · 口播视频动效库 | ${N_CARDS} Motion Recipe Cards for Explainer Videos`;
+const SEO_TITLE = `monologue-video · 口播视频动效库 | ${N_CARDS} Motion Recipe Cards for Explainer Videos`;
 const OG_IMAGE = SITE + "thumbs/hand-drawn-ellipse.png";
 const JSONLD = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "video-talkcraft",
+  name: "monologue-video",
   alternateName: "口播视频动效库",
   description: DESC,
   url: SITE,
@@ -165,7 +169,7 @@ const JSONLD = JSON.stringify({
   operatingSystem: "macOS, Windows, Linux",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   inLanguage: ["zh-CN", "en"],
-  author: { "@type": "Person", name: "Vincent Wei", url: "https://x.com/VincentWei93" },
+  author: { "@type": "Person", name: "broli", url: "https://x.com/0xbroli" },
 });
 
 const html = `<!DOCTYPE html>
@@ -173,12 +177,12 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${PAGES ? SEO_TITLE : "video-talkcraft · 口播动效库"}</title>${PAGES ? `
+<title>${PAGES ? SEO_TITLE : "monologue-video · 口播动效库"}</title>${PAGES ? `
 <meta name="description" content="${esc(DESC)}">
 <meta name="keywords" content="口播视频,动效库,视频动效,AI视频制作,解说视频,Claude Code,agent skill,Remotion,motion graphics,kinetic typography,voiceover-driven video,explainer video">
 <link rel="canonical" href="${SITE}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="video-talkcraft">
+<meta property="og:site_name" content="monologue-video">
 <meta property="og:title" content="${esc(SEO_TITLE)}">
 <meta property="og:description" content="${esc(DESC)}">
 <meta property="og:url" content="${SITE}">
@@ -188,7 +192,7 @@ const html = `<!DOCTYPE html>
 <meta name="twitter:description" content="${esc(DESC)}">
 <meta name="twitter:image" content="${OG_IMAGE}">
 <script type="application/ld+json">${JSONLD}</script>` : ""}
-<script>try{var __t=localStorage.getItem("vtc-theme");if(__t)document.documentElement.dataset.theme=__t;}catch(e){}</script>
+<script>try{var __t=localStorage.getItem("monologue-video-theme");if(__t)document.documentElement.dataset.theme=__t;}catch(e){}</script>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   :root { --bg:#0b0b0e; --panel:#131317; --line:#232329; --line2:#1a1a20; --txt:#ececf1; --txt2:#c9c9d4;
@@ -384,21 +388,15 @@ const html = `<!DOCTYPE html>
 </head>
 <body>
 <div class="topbar">
-  <h1>video-talkcraft <span class="sub" id="h1sub">· 口播动效库</span></h1>
+  <h1>monologue-video <span class="sub" id="h1sub">· 口播动效库</span></h1>
   <span class="tb-spacer"></span>
   <div class="follow">
-    <button class="tbtn follow-btn" id="followBtn"><span id="followTxt">关注作者</span>
+    <button class="tbtn follow-btn" id="followBtn"><span id="followTxt">关注 broli</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="menu"><div class="menu-in">
-      <div class="menu-h" id="menuH">关注作者</div>
-      <a href="https://www.douyin.com/user/MS4wLjABAAAAK1pkjBxilk2Oi_9h_vFyD-lTAu9CTlvhmOtkosDvvxg" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-        <span id="fDouyinT">抖音</span><span class="arr">↗</span></a>
-      <a href="https://xhslink.cn/m/At9iP2d5C1V" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><rect x="2" y="5.5" width="20" height="13" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><text x="12" y="14.8" text-anchor="middle" font-size="6.5" fill="currentColor" font-family="PingFang SC,sans-serif" font-weight="600">小红书</text></svg>
-        <span id="fXhsT">小红书</span><span class="arr">↗</span></a>
-      <a href="https://x.com/VincentWei93" target="_blank" rel="noopener">
+      <div class="menu-h" id="menuH">broli</div>
+      <a href="https://x.com/0xbroli" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         <span id="fXT">X</span><span class="arr">↗</span></a>
     </div></div>
@@ -453,16 +451,16 @@ const dlg = $("dlg");
 
 /* ── 主题 + 语言（右上角点击切换；默认深色 + 中文，localStorage 记忆） ── */
 const I18N = {
-  zh: { sub: "· 口播动效库", search: "搜索动效名称或关键词", follow: "关注作者", menuH: "关注作者",
-    douyin: "抖音", xhs: "小红书", x: "X", langTxt: "English",
+  zh: { sub: "· 口播动效库", search: "搜索动效名称或关键词", follow: "关注 broli", menuH: "broli",
+    x: "X", langTxt: "English",
     card: "配方卡", source: "源码", pick: "选取", close: "关闭", copy: "复制名字", copied: "已复制 ✓",
     clear: "清空", selA: "已选 ", selB: " 张", all: "全部", viewAll: "查看全部 ›",
     empty: "没有匹配的卡片", p0: "P0 高频", energy: "能量·", usage: "适用场景：", scope: "动效范围",
     hintA: " 切换动效 · ", hintB: " 选取当前 · 下方胶片条可点选",
     clickPlay: "点击播放（有声）", newChip: "NEW · 本批新增",
     prevT: "上一个（←）", nextT: "下一个（→）", themeT: "切换深/浅色", langT: "Switch to English" },
-  en: { sub: "· Motion Library", search: "Search motions by name or keyword", follow: "Follow me", menuH: "Follow me on",
-    douyin: "Douyin", xhs: "RedNote", x: "X", langTxt: "中文",
+  en: { sub: "· Motion Library", search: "Search motions by name or keyword", follow: "Follow broli", menuH: "broli",
+    x: "X", langTxt: "中文",
     card: "Recipe", source: "Source", pick: "Pick", close: "Close", copy: "Copy names", copied: "Copied ✓",
     clear: "Clear", selA: "", selB: " picked", all: "All", viewAll: "View all ›",
     empty: "No matching cards", p0: "P0 · Frequent", energy: "Energy · ", usage: "Best for: ", scope: "Scope",
@@ -474,7 +472,7 @@ const CAT_EN = { "字幕花字": "Kinetic Type", "强调标注": "Emphasis", "�
   "素材呈现": "Media Showcase", "转场结构": "Transitions", "人物互动": "Host & CTA", "运镜": "Camera Moves" };
 const EN_ENERGY = { "高": "High", "中": "Medium", "低": "Low", "中高": "Med-High", "低中": "Low-Med" };
 let LANG = "zh", THEME = "dark";
-try { LANG = localStorage.getItem("vtc-lang") || "zh"; THEME = localStorage.getItem("vtc-theme") || "dark"; } catch (e) {}
+try { LANG = localStorage.getItem("monologue-video-lang") || "zh"; THEME = localStorage.getItem("monologue-video-theme") || "dark"; } catch (e) {}
 const T = () => I18N[LANG];
 const catLabel = (c) => LANG === "en" ? (c === "全部" ? T().all : (CAT_EN[c] || c)) : c;
 const nameOf = (c) => LANG === "en" ? c.slug : c.zhName;
@@ -491,7 +489,7 @@ function applyI18n() {
   $("q").placeholder = t.search;
   $("followTxt").textContent = t.follow;
   $("menuH").textContent = t.menuH;
-  $("fDouyinT").textContent = t.douyin; $("fXhsT").textContent = t.xhs; $("fXT").textContent = t.x;
+  $("fXT").textContent = t.x;
   $("dlgClose").textContent = t.close;
   $("copySel").textContent = t.copy;
   $("clearSel").textContent = t.clear;
@@ -500,7 +498,7 @@ function applyI18n() {
   $("themeBtn").title = t.themeT;
 }
 /* GitHub star 数：api.github.com 允许任意 origin 的 CORS，取不到就不显示计数气泡 */
-fetch("https://api.github.com/repos/Vincentwei1021/video-talkcraft")
+fetch("${GITHUB_API}")
   .then((r) => (r.ok ? r.json() : null))
   .then((j) => {
     if (j && typeof j.stargazers_count === "number") {
@@ -512,12 +510,12 @@ fetch("https://api.github.com/repos/Vincentwei1021/video-talkcraft")
   }).catch(() => {});
 $("themeBtn").addEventListener("click", () => {
   THEME = THEME === "dark" ? "light" : "dark";
-  try { localStorage.setItem("vtc-theme", THEME); } catch (e) {}
+  try { localStorage.setItem("monologue-video-theme", THEME); } catch (e) {}
   applyTheme();
 });
 $("langBtn").addEventListener("click", () => {
   LANG = LANG === "zh" ? "en" : "zh";
-  try { localStorage.setItem("vtc-lang", LANG); } catch (e) {}
+  try { localStorage.setItem("monologue-video-lang", LANG); } catch (e) {}
   applyI18n(); render();
 });
 
@@ -756,7 +754,7 @@ if (PAGES) {
   writeFileSync(resolve(siteDir, "sitemap.xml"),
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${SITE}</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n</urlset>\n`);
   writeFileSync(resolve(siteDir, "llms.txt"),
-    `# video-talkcraft
+    `# monologue-video
 
 > 口播视频生成 agent skill：字级配音同步、${N_CARDS} 张动效配方卡、七层反 PPT 镜头系统，配合 Claude Code / Codex 用 Remotion 渲出高质量解说成片。
 > An agent skill that turns Claude Code / Codex into a motion-design studio for voiceover-driven explainer videos: word-level voiceover sync, ${N_CARDS} motion recipe cards, a 7-layer anti-slideshow camera system, rendered with Remotion.

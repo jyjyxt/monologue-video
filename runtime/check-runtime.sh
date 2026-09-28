@@ -43,16 +43,16 @@ if [ "$INSTALLED" != "$PINNED" ]; then log "FAIL: 已装版本与 package.json �
 
 if [ "${1:-}" = "--upgrade" ] && [ "$LATEST" != "?" ] && [ "$LATEST" != "$PINNED" ]; then
   log "升级 @remotion/* 全家 → $LATEST（冒烟不过自动回滚）"
-  cp package.json /tmp/talkcraft-runtime-package.json.bak
-  [ -f package-lock.json ] && cp package-lock.json /tmp/talkcraft-runtime-lock.bak
+  cp package.json /tmp/monologue-video-runtime-package.json.bak
+  [ -f package-lock.json ] && cp package-lock.json /tmp/monologue-video-runtime-lock.bak
   PKGS="$(node -p "Object.keys(require('./package.json').dependencies).filter(k => k === 'remotion' || k.startsWith('@remotion/')).map(k => k + '@$LATEST').join(' ')")"
   # shellcheck disable=SC2086
   if npm install --save-exact --no-audit --no-fund --loglevel=error $PKGS && npx remotion browser ensure >/dev/null && bash "$RT/check-runtime.sh" --smoke-only; then
     log "升级完成：$PINNED → $LATEST（package.json / lock 已更新，记得提交）"
   else
     log "冒烟 FAIL，回滚到 $PINNED"
-    cp /tmp/talkcraft-runtime-package.json.bak package.json
-    [ -f /tmp/talkcraft-runtime-lock.bak ] && cp /tmp/talkcraft-runtime-lock.bak package-lock.json
+    cp /tmp/monologue-video-runtime-package.json.bak package.json
+    [ -f /tmp/monologue-video-runtime-lock.bak ] && cp /tmp/monologue-video-runtime-lock.bak package-lock.json
     npm ci --no-audit --no-fund --loglevel=error
     exit 1
   fi
@@ -61,12 +61,12 @@ elif [ "${1:-}" = "--upgrade" ]; then
 fi
 
 # ⑤ 冒烟（--smoke-only 供升级流程内部调用；正常 check 也跑一次，几秒钟）
-if [ "${1:-}" = "--smoke-only" ] || [ "${TALKCRAFT_SMOKE:-1}" = "1" ]; then
-  rm -f /tmp/talkcraft-smoke.png
-  if npx remotion still smoke/index.ts Smoke /tmp/talkcraft-smoke.png --frame=5 >/tmp/talkcraft-smoke.log 2>&1 && [ -s /tmp/talkcraft-smoke.png ]; then
-    log "冒烟 PASS（/tmp/talkcraft-smoke.png）"
+if [ "${1:-}" = "--smoke-only" ] || [ "${MONOLOGUE_VIDEO_SMOKE:-1}" = "1" ]; then
+  rm -f /tmp/monologue-video-smoke.png
+  if npx remotion still smoke/index.ts Smoke /tmp/monologue-video-smoke.png --frame=5 >/tmp/monologue-video-smoke.log 2>&1 && [ -s /tmp/monologue-video-smoke.png ]; then
+    log "冒烟 PASS（/tmp/monologue-video-smoke.png）"
   else
-    log "冒烟 FAIL，见 /tmp/talkcraft-smoke.log"; tail -5 /tmp/talkcraft-smoke.log; exit 1
+    log "冒烟 FAIL，见 /tmp/monologue-video-smoke.log"; tail -5 /tmp/monologue-video-smoke.log; exit 1
   fi
 fi
 log "OK"

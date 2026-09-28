@@ -7,7 +7,7 @@ import { C, FONT, RADII, SHADOW_EVIDENCE } from "../../kb/theme";
 import { atChar } from "../../kb/timing";
 import { SHOTS } from "../../kb/shots";
 
-// kscene-s04 · 口播成片 S04「video-talkcraft · 78 张配方卡」逐镜参数化卡
+// kscene-s04 · 口播成片 S04「monologue-video · 78 张配方卡」逐镜参数化卡
 // 已知边界：数字滚动落点踩「七十八」词锚（NumberRoll ≤26 帧到终值）、扇形卡错峰、
 // 相机路径全部 FIXED——改文案/终值后节拍仍按原配音词锚走。
 // 默认值渲染与原成片 PromoScene(Shell+Scene04) 逐像素一致。
@@ -73,7 +73,7 @@ const KSceneS04: React.FC<Props> = ({
   headAccent = "视觉词汇",
   cardPrefix = "CARD",
   fanText = "motion recipe",
-  fanTopText = "video-talkcraft",
+  fanTopText = "monologue-video",
   countTo = 78,
   countCaption = "张动效配方卡",
   countSub = "每张都有可直接播放的 demo",
@@ -130,7 +130,7 @@ const KSceneS04: React.FC<Props> = ({
 
 export const card: CardDef = {
   id: "kscene-s04",
-  name: "video-talkcraft · 78 张配方卡",
+  name: "monologue-video · 78 张配方卡",
   category: "口播镜头",
   durationInFrames: total,
   accent: "#0066cc",
@@ -140,7 +140,7 @@ export const card: CardDef = {
     { type: "text", key: "headAccent", label: "大标题 · 强调词", default: "视觉词汇" },
     { type: "text", key: "cardPrefix", label: "扇形卡眉题前缀", default: "CARD" },
     { type: "text", key: "fanText", label: "扇形卡标题（前 6 张）", default: "motion recipe" },
-    { type: "text", key: "fanTopText", label: "扇形卡标题（顶张深色卡）", default: "video-talkcraft" },
+    { type: "text", key: "fanTopText", label: "扇形卡标题（顶张深色卡）", default: "monologue-video" },
     { type: "number", key: "countTo", label: "数字滚动终值", default: 78, min: 0, step: 1 },
     { type: "text", key: "countCaption", label: "数字下标题", default: "张动效配方卡" },
     { type: "text", key: "countSub", label: "数字下副行", default: "每张都有可直接播放的 demo" },

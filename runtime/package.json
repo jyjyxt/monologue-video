@@ -1,11 +1,11 @@
 {
-  "name": "talkcraft-runtime",
+  "name": "monologue-video-runtime",
   "private": true,
-  "description": "video-talkcraft 统一依赖：所有口播工程的 remotion/node_modules 与 workbench/node_modules 都软链到 runtime/node_modules；版本只在这一份文件里钉（@remotion/* 全家同号），升级走 check-runtime.sh --upgrade",
+  "description": "monologue-video 统一依赖：所有口播工程的 remotion/node_modules 与 workbench/node_modules 都软链到 runtime/node_modules；版本只在这一份文件里钉（@remotion/* 全家同号），升级走 check-runtime.sh --upgrade",
   "scripts": {
     "check": "bash check-runtime.sh",
     "upgrade": "bash check-runtime.sh --upgrade",
-    "smoke": "remotion still smoke/index.ts Smoke /tmp/talkcraft-smoke.png --frame=5"
+    "smoke": "remotion still smoke/index.ts Smoke /tmp/monologue-video-smoke.png --frame=5"
   },
   "dependencies": {
     "remotion": "4.0.519",

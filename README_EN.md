@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="assets/logo.svg" alt="video-talkcraft logo" width="150">
+<img src="assets/logo.svg" alt="monologue-video logo" width="150">
 
-<h1>video-talkcraft</h1>
+<h1>monologue-video</h1>
 
-[![Gallery](https://img.shields.io/badge/Gallery-live%20previews-7A5AF8)](https://vincentwei1021.github.io/video-talkcraft/)
+[![Gallery](https://img.shields.io/badge/Gallery-live%20previews-7A5AF8)](https://jyjyxt.github.io/monologue-video/)
 [![License](https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue)](LICENSE)
 
 **An agent skill for crafting high-quality voiceover-driven videos: word-level voiceover sync · 108 motion recipe cards · a 7-layer anti-slideshow shot system · triple-gate QA**
@@ -13,7 +13,7 @@
 
 </div>
 
-**video-talkcraft** is the voiceover-driven explainer installment of the
+**monologue-video** is a renamed copy of Vincent Wei's [video-talkcraft](https://github.com/Vincentwei1021/video-talkcraft), the voiceover-driven explainer installment of the
 [video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) series:
 an AI agent skill that turns Claude Code or Codex into a motion-design studio
 for narrated explainer videos. Give it a narration script and a finished
@@ -26,9 +26,9 @@ camera moves, plain-cut subtitles, and film-grade SFX, all locked to the voice.
 > built Chinese-narration-first (mixed Chinese/English narration is fully
 > supported). Agents read them natively.
 
-🖼️ [**Browse all 108 motion previews in the live Gallery »**](https://vincentwei1021.github.io/video-talkcraft/)
+🖼️ [**Browse all 108 motion previews in the live Gallery »**](https://jyjyxt.github.io/monologue-video/); the local gallery is `gallery/index.html`.
 
-[![video-talkcraft live gallery](assets/gallery-en.png)](https://vincentwei1021.github.io/video-talkcraft/)
+[![monologue-video live gallery screenshot](assets/gallery-en.png)](https://jyjyxt.github.io/monologue-video/)
 
 ## 🆕 What's new
 <!-- Style rule: one sentence per entry, ≤ 350 characters including the pointer link, stating what it is and what behaviour changed; details, parameters and card lists point to references / SKILL.md sections instead of being expanded here. Keep zh and en in sync. Set by PR #12 (2026-09-05); #14/#18 drifted back to long paragraphs, tightened again 2026-09-07. -->
@@ -101,7 +101,7 @@ camera moves, plain-cut subtitles, and film-grade SFX, all locked to the voice.
 - **108 motion recipe cards** — each with intent, parameters, known pitfalls,
   a copy-paste self-contained Remotion tsx source, and a runnable HTML
   preview — browse them all in the
-  [online Gallery](https://vincentwei1021.github.io/video-talkcraft/) or
+  [online Gallery](https://jyjyxt.github.io/monologue-video/) or
   locally with `open gallery/index.html`. Kinetic type, data shots, evidence
   tours, six motion-carry transitions, a long-take world canvas, host
   compositing, and more.
@@ -122,25 +122,14 @@ camera moves, plain-cut subtitles, and film-grade SFX, all locked to the voice.
 
 ## 🚀 Quick start
 
-**The most direct way: hand the repo link to your agent.**
-In Claude Code / Codex or a similar agent, just say:
-
-```text
-Install this skill for me: https://github.com/Vincentwei1021/video-talkcraft
-```
-
-Or install with the [skills](https://skills.sh/) CLI / manually:
+Clone this repository, then install the local skill:
 
 ```bash
-npx skills add Vincentwei1021/video-talkcraft
-```
-
-```bash
-git clone https://github.com/Vincentwei1021/video-talkcraft.git
-cd video-talkcraft
-ln -s "$(pwd)" ~/.claude/skills/video-talkcraft   # Claude Code
+git clone https://github.com/jyjyxt/monologue-video.git
+cd monologue-video
+ln -s "$(pwd)" ~/.claude/skills/monologue-video   # Claude Code
 # or
-ln -s "$(pwd)" ~/.codex/skills/video-talkcraft    # Codex
+ln -s "$(pwd)" ~/.codex/skills/monologue-video    # Codex
 ```
 
 Environment (the agent will set this up as needed):
@@ -155,7 +144,7 @@ Environment (the agent will set this up as needed):
 Then make requests like:
 
 ```text
-Use video-talkcraft to turn this narration script + voiceover.wav into a video.
+Use monologue-video to turn this narration script + voiceover.wav into a video.
 Make a 100-second explainer about <topic>; here is the script and the audio.
 ```
 
@@ -197,7 +186,7 @@ python3 -m unittest discover -s scripts -p 'test_*fish*.py' -v
 | Content | Description |
 | --- | --- |
 | 108 motion recipe cards | Intent, energy, parameters, implementation notes, and known pitfalls — every card ships a self-contained Remotion tsx source (`template/cards/`, copy one file and go) plus a runnable HTML demo |
-| Gallery | [Online](https://vincentwei1021.github.io/video-talkcraft/) or local (`open gallery/index.html`) — browse and autoplay all 108 previews, search by name/keyword |
+| Gallery | [Online](https://jyjyxt.github.io/monologue-video/) or local (`open gallery/index.html`) — browse and autoplay all 108 previews, search by name/keyword |
 | Motion systems | CameraRig (slow push/pull), yield lifecycle, six transitions, long-take world canvas; parallax and environment layer optional (`template/motion-systems/`) |
 | Components | Plain-cut subtitles, flower-word titles, smash words, highlight sweeps, pencil draw, number rolls, eight video container frames (`template/components/`) |
 | Pipeline scripts | Word-level timestamps (2 ASR backends), face-zone detection, stillness check, SFX presence check, QA frame extraction (`scripts/`) |
@@ -207,7 +196,7 @@ python3 -m unittest discover -s scripts -p 'test_*fish*.py' -v
 ## 🗂 Repository structure
 
 ```text
-video-talkcraft/
+monologue-video/
 ├── SKILL.md                    # Agent entry point: the 8-step pipeline and hard rules
 ├── references/
 │   ├── design-language.md      # Default visual system (palette/type/layout/subtitles)
@@ -232,7 +221,7 @@ For the full workflow, start at [SKILL.md](SKILL.md).
 
 ## ❓ FAQ
 
-**What is video-talkcraft?**
+**What is monologue-video?**
 An open-source AI agent skill (for Claude Code / Codex) that turns a narration
 script plus a finished voiceover into a fully animated, voiceover-driven
 explainer video. It is
@@ -258,13 +247,11 @@ toolkit itself requires prior authorization (see below).
 
 [PolyForm Noncommercial 1.0.0](LICENSE) — free for personal, educational, and
 research use. **Any commercial use of the toolkit requires prior
-authorization** — email
-[vincentwei1021@gmail.com](mailto:vincentwei1021@gmail.com) or open
-a GitHub issue.
+authorization from the original licensor** — contact
+[Vincent Wei](mailto:vincentwei1021@gmail.com). Renaming does not change the license.
 
-**Videos you produce with this skill belong to you.** If it helped, a mention
-of the author's accounts in your video description is appreciated — and
-entirely optional.
+**Videos you produce with this skill belong to you.** This fork is maintained by
+[broli](https://x.com/0xbroli).
 
 ## 🔊 Audio and asset notes
 
@@ -293,10 +280,6 @@ entirely optional.
 - **Claude Code** — this library was built, iterated, and QA'd with an AI
   coding agent, using the same review loops the skill teaches.
 
-## Follow me
+## Maintainer
 
-<p>
-  <a href="https://x.com/VincentWei93"><img alt="Follow Vincent on X" src="https://img.shields.io/badge/X-Follow_Me-000000?style=for-the-badge&logo=x&logoColor=white"></a>
-  <a href="https://www.douyin.com/user/MS4wLjABAAAAK1pkjBxilk2Oi_9h_vFyD-lTAu9CTlvhmOtkosDvvxg"><img alt="Follow Vincent on Douyin" src="https://img.shields.io/badge/Douyin-Follow_Me-000000?style=for-the-badge&logo=tiktok&logoColor=white"></a>
-  <a href="https://xhslink.cn/m/At9iP2d5C1V"><img alt="Follow Vincent on Red Note" src="https://img.shields.io/badge/Red_Note-Follow_Me-FF2442?style=for-the-badge&logo=xiaohongshu&logoColor=white"></a>
-</p>
+[broli · @0xbroli](https://x.com/0xbroli)

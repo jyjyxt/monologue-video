@@ -18,7 +18,7 @@ DEFAULT_OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 def fetch(icon_set: str, names: list[str]) -> dict:
     url = f"https://api.iconify.design/{icon_set}.json?icons=" + ",".join(names)
     # urllib 的默认 UA 会被 Iconify 403，走 curl 并带 UA
-    out = subprocess.run(["curl", "-s", "-m", "40", "-A", "Mozilla/5.0 video-talkcraft fetch_icons", url], capture_output=True, text=True, check=True).stdout
+    out = subprocess.run(["curl", "-s", "-m", "40", "-A", "Mozilla/5.0 monologue-video fetch_icons", url], capture_output=True, text=True, check=True).stdout
     data = json.loads(out)
     if data.get("not_found"):
         print("未找到：", data["not_found"], file=sys.stderr)

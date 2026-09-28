@@ -89,7 +89,7 @@ test('foreign and untagged projects rebuild from current source, including canva
 });
 
 test('localStorage and HMR state are isolated by source; legacy data is retained', async () => {
-  const values = new Map([['talkcraft-workbench-project-v1', JSON.stringify({name: 'legacy', tracks: []})]]);
+  const values = new Map([['monologue-video-workbench-project-v1', JSON.stringify({name: 'legacy', tracks: []})]]);
   const timer = clock();
   function store(source, hot) {
     return load('workbench/src/store.ts', {
@@ -105,7 +105,7 @@ test('localStorage and HMR state are isolated by source; legacy data is retained
   b.getState().setProject({name: 'B edit', tracks: []}); await timer.advance(800);
   assert.equal(store('/videos/A').getState().project.name, 'A edit');
   assert.equal(store(projectRoot).getState().project.name, 'B edit');
-  assert.equal(JSON.parse(values.get('talkcraft-workbench-project-v1')).name, 'legacy');
+  assert.equal(JSON.parse(values.get('monologue-video-workbench-project-v1')).name, 'legacy');
 });
 
 function saver(fetchImpl) {
@@ -282,7 +282,7 @@ test('store survives module re-execution as a singleton', async () => {
   assert.equal(a, b, 'same store object across two module executions');
   assert.equal(b.getState().project.name, 'edited');
   await timer.advance(800);
-  assert.equal(JSON.parse(values.get(`talkcraft-workbench-project-v1:${encodeURIComponent(projectRoot)}`)).name, 'edited', 'autosave installed exactly once still works');
+  assert.equal(JSON.parse(values.get(`monologue-video-workbench-project-v1:${encodeURIComponent(projectRoot)}`)).name, 'edited', 'autosave installed exactly once still works');
 });
 
 // 2026-09-21 用户："原来口播的声音怎么没了"——配音块写死 full.wav，工程用 narration.wav 时多轨静音。按工程实际音频解析；旧存档同步时迁移

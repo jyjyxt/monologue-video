@@ -1,12 +1,11 @@
 <div align="center">
 
-<img src="assets/logo.svg" alt="video-talkcraft logo" width="150">
+<img src="assets/logo.svg" alt="monologue-video logo" width="150">
 
-<h1>video-talkcraft</h1>
+<h1>monologue-video</h1>
 
-[![Gallery](https://img.shields.io/badge/Gallery-live%20previews-7A5AF8)](https://vincentwei1021.github.io/video-talkcraft/)
+[![Gallery](https://img.shields.io/badge/Gallery-live%20previews-7A5AF8)](https://jyjyxt.github.io/monologue-video/)
 [![License](https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue)](LICENSE)
-[![WeChat](https://img.shields.io/badge/WeChat-%E8%AE%A8%E8%AE%BA%E7%BE%A4-07C160?logo=wechat&logoColor=white)](assets/wechat-group.jpg)
 
 **口播视频的 agent skill：字级配音同步 · 108 张动效配方卡 · 七层反 PPT 镜头系统 · 三重验收**
 
@@ -14,15 +13,15 @@
 
 </div>
 
-**video-talkcraft** 是 [video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft)
-系列的口播视频篇：一个把 Claude Code / Codex 变成口播视频动效工作室的 AI agent skill。
+**monologue-video** 是基于 Vincent Wei 的 [video-talkcraft](https://github.com/Vincentwei1021/video-talkcraft)
+改名的口播视频 AI agent skill，属于 [video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) 系列。
 给它一份口播稿和一条成品配音，它在本机对齐字级时间戳、把每个语义拍写进 SHOTBOOK
 分镜，然后用 [Remotion](https://www.remotion.dev/) 渲出高质量的解说成片——动态字卡、
 证据截图、运镜、素排字幕、影视级音效，全部锁在人声上。
 
-🖼️ [**在线画廊：108 张动效预览一页全览 »**](https://vincentwei1021.github.io/video-talkcraft/)
+🖼️ [**在线画廊：108 张动效预览一页全览 »**](https://jyjyxt.github.io/monologue-video/)；本地画廊见 `gallery/index.html`。
 
-[![video-talkcraft 在线画廊](assets/gallery-zh.png)](https://vincentwei1021.github.io/video-talkcraft/)
+[![monologue-video 在线画廊截图](assets/gallery-zh.png)](https://jyjyxt.github.io/monologue-video/)
 
 ## 统一依赖（runtime/）
 
@@ -95,7 +94,7 @@
   对照 GPU 强制对齐器实测：字级偏差中位 20–40ms、最差 200ms、质检零误报。
   每个动效节拍都锚在确切的字上。
 - **108 张动效配方卡**——每张有意图、参数、已知坑、可直接复制的自包含 Remotion tsx 源码和可跑的 HTML 预览，
-  [在线画廊](https://vincentwei1021.github.io/video-talkcraft/)一页全览
+  [在线画廊](https://jyjyxt.github.io/monologue-video/)一页全览
   （本地 `open gallery/index.html` 同款）。动态字卡、数据镜头、证据巡游、
   六式运动承接转场、长镜头世界画布、人物合成等。
 - **七层反 PPT 系统**——每场景一条极缓推进 / 拉出的相机曲线 + 让位生命周期 + 六式运动承接转场
@@ -108,25 +107,14 @@
 
 ## 🚀 快速开始
 
-**最直接的方式：把仓库链接丢给你的 agent。**
-在 Claude Code / Codex 里直接说：
-
-```text
-帮我安装这个 skill：https://github.com/Vincentwei1021/video-talkcraft
-```
-
-或用 [skills](https://skills.sh/) CLI / 手动安装：
+克隆本仓库并安装这个本地 skill：
 
 ```bash
-npx skills add Vincentwei1021/video-talkcraft
-```
-
-```bash
-git clone https://github.com/Vincentwei1021/video-talkcraft.git
-cd video-talkcraft
-ln -s "$(pwd)" ~/.claude/skills/video-talkcraft   # Claude Code
+git clone https://github.com/jyjyxt/monologue-video.git
+cd monologue-video
+ln -s "$(pwd)" ~/.claude/skills/monologue-video   # Claude Code
 # 或
-ln -s "$(pwd)" ~/.codex/skills/video-talkcraft    # Codex
+ln -s "$(pwd)" ~/.codex/skills/monologue-video    # Codex
 ```
 
 环境（agent 会按需自行配置）：
@@ -142,7 +130,7 @@ ln -s "$(pwd)" ~/.codex/skills/video-talkcraft    # Codex
 然后这样下需求：
 
 ```text
-用 video-talkcraft 把这份口播稿 + voiceover.wav 做成视频。
+用 monologue-video 把这份口播稿 + voiceover.wav 做成视频。
 做一条 100 秒的 <话题> 解说，稿子和音频在这里。
 ```
 
@@ -184,7 +172,7 @@ python3 -m unittest discover -s scripts -p 'test_*fish*.py' -v
 | 内容 | 说明 |
 | --- | --- |
 | 108 张动效配方卡 | 意图、能量档、参数、实现要点、已知坑——每张都配自包含 Remotion tsx 源码（`template/cards/`，复制单文件即用）+ 可跑的 HTML demo |
-| 画廊 | [在线版](https://vincentwei1021.github.io/video-talkcraft/)或本地 `open gallery/index.html`——108 个预览一页自动播放，按名称/关键词搜索 |
+| 画廊 | [在线版](https://jyjyxt.github.io/monologue-video/)或本地 `open gallery/index.html`——108 个预览一页自动播放，按名称/关键词搜索 |
 | 动效系统 | CameraRig（极缓推拉）、让位生命周期、六式转场、长镜头世界画布；视差 / 环境层可选（`template/motion-systems/`） |
 | 组件 | 素排字幕、花字、砸字、荧光笔、铅笔手绘、数字滚动、视频容器边框八式（`template/components/`） |
 | 管线脚本 | 字级时间戳（双 ASR 后端）、人脸安全区检测、静止检测、音效在场检查、QA 抽帧（`scripts/`） |
@@ -194,7 +182,7 @@ python3 -m unittest discover -s scripts -p 'test_*fish*.py' -v
 ## 🗂 目录结构
 
 ```text
-video-talkcraft/
+monologue-video/
 ├── SKILL.md                    # agent 入口：八步管线与硬规则
 ├── references/
 │   ├── design-language.md      # 默认视觉系统（色板/字阶/布局/字幕）
@@ -219,7 +207,7 @@ video-talkcraft/
 
 ## ❓ FAQ
 
-**video-talkcraft 是什么？**
+**monologue-video 是什么？**
 一个开源的 AI agent skill（Claude Code / Codex 技能包），用于 AI 视频制作：
 把口播稿 + 成品配音自动做成带动效的口播视频。它不是剪辑软件，也不是模板站——
 agent 读方法论、选动效配方卡、写 [Remotion](https://www.remotion.dev/) 代码、
@@ -239,11 +227,10 @@ agent 读方法论、选动效配方卡、写 [Remotion](https://www.remotion.de
 ## 📄 许可
 
 [PolyForm Noncommercial 1.0.0](LICENSE)——个人、教育、研究用途免费。
-**将本工具用于任何商业用途需事先获得授权**——发邮件至
-[vincentwei1021@gmail.com](mailto:vincentwei1021@gmail.com) 或提 GitHub issue 联系。
+**将本工具用于任何商业用途需事先获得原作者授权**——联系
+[Vincent Wei](mailto:vincentwei1021@gmail.com)。改名不改变原许可条款。
 
-**用本 skill 做出的视频归你所有。** 如果它帮到了你，欢迎在视频简介里
-@ 一下作者的账号——非强制，但对作者是最好的支持。
+**用本 skill 做出的视频归你所有。** 本分支由 [broli](https://x.com/0xbroli) 维护。
 
 ## 🔊 音频与素材说明
 
@@ -265,18 +252,6 @@ agent 读方法论、选动效配方卡、写 [Remotion](https://www.remotion.de
 - **Pexels · Pixabay · NASA · Mixkit**——免署名素材来源。
 - **Claude Code**——本库由 AI 编码 agent 构建、迭代与验收，用的正是 skill 自己教的那套评审循环。
 
-## 关注作者
+## 维护者
 
-<p>
-  <a href="https://www.douyin.com/user/MS4wLjABAAAAK1pkjBxilk2Oi_9h_vFyD-lTAu9CTlvhmOtkosDvvxg"><img alt="在抖音关注作者" src="https://img.shields.io/badge/%E6%8A%96%E9%9F%B3-%E5%85%B3%E6%B3%A8%E6%88%91-000000?style=for-the-badge&logo=tiktok&logoColor=white"></a>
-  <a href="https://xhslink.cn/m/At9iP2d5C1V"><img alt="在小红书关注作者" src="https://img.shields.io/badge/%E5%B0%8F%E7%BA%A2%E4%B9%A6-%E5%85%B3%E6%B3%A8%E6%88%91-FF2442?style=for-the-badge&logo=xiaohongshu&logoColor=white"></a>
-  <a href="https://x.com/VincentWei93"><img alt="在 X 关注作者" src="https://img.shields.io/badge/X-%E5%85%B3%E6%B3%A8%E6%88%91-000000?style=for-the-badge&logo=x&logoColor=white"></a>
-</p>
-
-## 微信讨论群
-
-有建议、反馈或使用问题？扫码加入 video-talkcraft 交流群（2 群）：
-
-<img src="assets/wechat-group.jpg" alt="video-talkcraft 微信交流群二维码" width="300">
-
-二维码更新于 2026-09-17，过期后会不定期更新；也可通过上方社媒直接联系作者。
+[broli · @0xbroli](https://x.com/0xbroli)
